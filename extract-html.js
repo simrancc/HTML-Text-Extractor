@@ -94,17 +94,29 @@ const outputDir = './out';
             if ($(this).next()[0].name == 'ul' || $(this).next()[0].name == 'li' || $(this).next()[0].name == 'ol') {
               const children = $(this).next()[0].children
               var newPar = "";
+              var combine = "";
+              var check = false;
               for (const child of children) {
                 if (child.type == 'tag') {
                   for (const x of child.children) {
                     if (x.type == 'text') {
                       text = x.data
-                      newPar = str + text;
-                      console.log(newPar);
-                      console.log();
+                      if (text.length < 20) {
+                        check = true;
+                        combine = combine + text + ", ";
+                      }
+                      if (!check) {
+                        newPar = str + text;
+                        console.log(newPar);
+                        console.log();
+                      }
                     }
                   }
                 }
+              }
+              if (check) {
+                newPar = str + combine;
+                console.log(newPar)
               }
               //$(this).add('p');
               //newNode.append("This is a paragraph");
