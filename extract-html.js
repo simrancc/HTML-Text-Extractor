@@ -96,19 +96,24 @@ const outputDir = './out';
               var newPar = "";
               var combine = "";
               var check = false;
+              var count = 0;
               for (const child of children) {
                 if (child.type == 'tag') {
+                  count = count + 1;
                   for (const x of child.children) {
                     if (x.type == 'text') {
                       text = x.data
-                      if (text.length < 20) {
-                        check = true;
+                      if (count == 1 && text.length < 20) {
                         combine = combine + text + ", ";
+                        check = true;
                       }
                       if (!check) {
                         newPar = str + text;
                         console.log(newPar);
                         console.log();
+                      }
+                      else if (check && count != 1) {
+                        combine = combine + text + ", ";
                       }
                     }
                   }
@@ -116,7 +121,9 @@ const outputDir = './out';
               }
               if (check) {
                 newPar = str + combine;
-                console.log(newPar)
+                var updated = newPar.substring(0, newPar.length - 2);
+                updated = updated + ".";
+                console.log(updated)
               }
               //$(this).add('p');
               //newNode.append("This is a paragraph");
