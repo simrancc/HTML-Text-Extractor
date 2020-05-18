@@ -1,0 +1,611 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <!-- Environment setup -->
+<script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script src="https://connect.facebook.net/signals/config/1692450694411246?v=2.9.18&amp;r=stable" async=""></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=90a79f27bace573b1cfe0e5d54e5bc1c&amp;ua=modern_es6" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-875425320&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//static.ads-twitter.com/uwt.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js"></script><script type="text/javascript" async="" src="https://cdn.appsflyer.com/web-sdk/banner/latest/sdk.min.js?webkey=1d91dde8-654b-47ae-87e3-47d0669786b4"></script><script async="" src="https://public.profitwell.com/js/profitwell.js?auth=40015246af3f7ba804c1755b6f085cb0"></script><script type="text/javascript" integrity="sha384-vYYnQ3LPdp/RkQjoKBTGSq0X5F73gXU3G2QopHaIfna0Ct1JRWzwrmEz115NzOta" crossorigin="anonymous" async="" src="https://cdn.amplitude.com/libs/amplitude-5.8.0-min.gz.js"></script><script>
+const ENV_DEV = 'dev';
+const ENV_STAGING = 'staging';
+const ENV_PRODUCTION = 'production';
+const websiteEnv = "production";
+// const ENABLE_AMPLITUDE_TRACKING = websiteEnv === ENV_STAGING || websiteEnv === ENV_PRODUCTION;
+const ENABLE_AMPLITUDE_TRACKING = true;
+</script>
+<!-- Amplitude -->
+<!-- AMPLITUDE -->
+<script type="text/javascript">
+  if (ENABLE_AMPLITUDE_TRACKING) {
+      (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+      ;r.type="text/javascript"
+      ;r.integrity="sha384-vYYnQ3LPdp/RkQjoKBTGSq0X5F73gXU3G2QopHaIfna0Ct1JRWzwrmEz115NzOta"
+      ;r.crossOrigin="anonymous";r.async=true
+      ;r.src="https://cdn.amplitude.com/libs/amplitude-5.8.0-min.gz.js"
+      ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
+        console.log("[Amplitude] Error: could not load SDK")}}
+      ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+      ;function s(e,t){e.prototype[t]=function(){
+        this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+        var o=function(){this._q=[];return this}
+        ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
+        ;for(var u=0;u&lt;a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
+          ;return this}
+        ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+        ;for(var p=0;p&lt;l.length;p++){s(c,l[p])}n.Revenue=c
+        ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
+        ;function v(e){function t(t){e[t]=function(){
+          e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+          for(var n=0;n&lt;d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+          e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+          ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
+        ;e.amplitude=n})(window,document);
+
+      if (websiteEnv === ENV_PRODUCTION) {
+        amplitude.getInstance().init("f0443c3fd3345a4a80d9746aa61b7d2e");
+      } else {
+        amplitude.getInstance().init("ecbaf03c445c35171886ffe0579ce004");
+      }
+
+      function logAmplitudeEvent ( eventType, eventProperties, callback )
+      {               
+        amplitude.getInstance().logEvent( eventType, eventProperties, callback );
+      }
+  }
+</script>
+
+<!-- Viewport -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<!-- Facebook Open Graph -->
+<meta property="fb:app_id" content="1629709950616745" />
+<meta property="og:title" content="Ripl" />
+<meta property="og:site_name" content="Ripl: Create Branded Videos and Images for Social Media" />
+<meta property="og:url" content="https://www.ripl.com" />
+<link href="https://www.ripl.com" rel="canonical" />
+<meta property="og:description" content="Ripl is the simplest way to build your brand on social media. Create marketing videos in minutes, then share them to Facebook, Instagram, Twitter, LinkedIn, and YouTube instantly." />
+<meta property="og:image" content="https://www.ripl.com/images/opengraph/facebookgraph.jpg" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<!-- Twitter -->
+<meta name="twitter:site" content="@ripl_app" />
+<meta name="twitter:card" content="app" />
+<meta name="twitter:app:id:iphone" content="1030906799" />
+<meta name="twitter:app:id:ipad" content="1030906799" />
+
+
+<!-- Favicons -->
+
+<!-- generics -->
+<link rel="icon" type="image/png" href="/images/favicons/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicons/favicon-128.png" sizes="128x128" />
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="/images/favicons/favicon-196x196.png" />
+
+<!-- iOS -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
+
+<!-- Microsoft -->
+<meta name="application-name" content=" " />
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="/images/favicons/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="/images/favicons/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="/images/favicons/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="/images/favicons/mstile-310x310.png" />
+
+<!-- CSS -->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="/css/animate.css" />
+
+<!-- SASS compiled CSS -->
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- icon font -->
+<link rel="stylesheet" href="/css/iconfont-style.css" />
+
+<!-- cookie permission -->
+<link rel="stylesheet" href="/css/cookieconsent.css" />
+
+
+<!-- Stripe -->
+<!-- STRIPE -->
+<script id="profitwell-js" data-pw-auth="40015246af3f7ba804c1755b6f085cb0">
+    (function(i,s,o,g,r,a,m){i[o]=i[o]||function(){(i[o].q=i[o].q||[]).push(arguments)};
+        a=s.createElement(g);m=s.getElementsByTagName(g)[0];a.async=1;a.src=r+'?auth='+
+            s.getElementById(o+'-js').getAttribute('data-pw-auth');m.parentNode.insertBefore(a,m);
+    })(window,document,'profitwell','script','https://public.profitwell.com/js/profitwell.js');
+
+    profitwell('start', {});
+</script>
+
+<script src="/js/URI.min.js"></script>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <!--AppsFlyer SmartBanner-->
+    <script>
+  !function ( e, n, t )
+  {
+    !function ( e, n, t, r, a )
+    {
+      var s = (e[n] = e[n] || {})[t] = function ()
+      {
+        (s._q = s._q || []).push( Array.prototype.slice.call( arguments ) )
+      };
+      s.webkey = a;
+      for ( var i = 0; i &lt; r.length; i++ )
+      {
+        s[r[i]] = function ( n )
+        {
+          return function ()
+          {
+            var e = Array.prototype.slice.call( arguments );
+            return e.unshift( n ), (s._q = s._q || []).push( e ), s
+          }
+        }
+        ( r[i] )
+      }
+    }( e, "AF", "Banner", ["showBanner", "hideBanner", "disableBanners", "disableTracking", "setAdditionalParams"], t ),
+      function ( e, n, t )
+      {
+        var r = e.createElement( "script" );
+        r.type = "text/javascript", r.async = !0, r.src = n + (t ? "?webkey=" + t : "");
+        var a = e.getElementsByTagName( "script" )[0];
+        a.parentNode.insertBefore( r, a )
+      }( n, "https://cdn.appsflyer.com/web-sdk/banner/latest/sdk.min.js", t )
+  }( window, document, "1d91dde8-654b-47ae-87e3-47d0669786b4" );
+  window.AF.Banner.showBanner();
+</script>
+
+
+
+<!-- Google Tag Manager -->
+<!-- include snippets/gtm.html -->
+
+
+    <title>Ripl Privacy Policy</title>
+    <meta name="description" content="Ripl Service Privacy Policy" />
+    <meta name="keywords" content="privacy, policy, Ripl" />
+    <meta name="author" content="" />
+
+  <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/875425320/?random=1589511772672&amp;cv=9&amp;fst=1589511772672&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1080&amp;u_aw=1920&amp;u_cd=24&amp;u_his=2&amp;u_tz=-240&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2oa561&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fwww.ripl.com%2Fprivacy-policy%2F&amp;tiba=Ripl%20Privacy%20Policy&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><style></style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset&gt;div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title&gt;span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+
+  <body><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom cc-color-override--555794917 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">By using this site, you agree to the use of cookies for analytics, personalized content, and ads. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="/privacy-policy/" target="_blank">Privacy Policy</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+    <!-- Google Tag Manager (noscript) -->
+<!-- <noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTC3XZR" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript> -->
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <div id="wrap">
+
+      <nav class="navbar fixed-top navbar-expand-md bg-color-white p-3 p-md-0">
+  <div class="container">
+      <a class="navbar-brand" href="/index.html">
+        <img class="logo-image" src="/images/ripllogo.png" alt="Ripl-Create Animated Social Posts in Seconds" />
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <span class="nav-hamburger"></span> -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+    
+      <div class="collapse navbar-collapse bg-color-white px-2 px-md-0" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-5 mb-md-0">
+            <li class="nav-item mr-auto">
+              <a class="nav-link" href="/features-and-price/">Features &amp; Pricing</a>
+            </li>
+            <li class="nav-item mr-auto mb-4 mb-md-0">
+              <a class="nav-link" href="https://blog.ripl.com">Blog</a>
+            </li>            
+            <li class="nav-item mr-auto my-md-auto p-0 col-12 col-sm-6 col-md">
+              <a class="nav-link btn outline px-2 cta-action" href="" cta-query-string="login" data-destination-url="https://app.ripl.com/login" amplitude-event-name="webappLaunched">Login</a>
+            </li>
+            <li class="nav-item mr-auto my-md-auto p-0 col-12 col-sm-6 col-md">
+              <a class="nav-link btn colored px-2 cta-action" href="" data-destination-url="https://app.ripl.com/login?a=firstRun" amplitude-event-name="webappLaunched">Sign Up</a>
+            </li>
+        </ul>
+      </div>  
+  </div>  
+</nav>
+
+
+          
+      
+
+<section class="below-nav-margin">
+    <div class="container">
+        <h2>Privacy Policy</h2>
+        <div class="row mt-5 justify-content-center">
+            <div class="col">
+                <ol>
+                    <li>
+                        <h3>Introduction</h3>
+                        <p>For purposes of this Privacy Policy, references to “we,” “our,” and “us” mean Ripl, Inc. Ripl, Inc. owns and operates the Ripl mobile app, the website at <a href="http://www.ripl.com/">www.ripl.com</a>, and the Ripl software service, which provides digital media creation, editing, publishing, and engagement tracking analytics services (the “Ripl Service”). This Privacy Policy explains how and why we collect, use, and disclose information about you collected through the Ripl Service.</p>
+                        <p>We reserve the right to change, modify, add, or remove portions of this Privacy Policy from time to time. We will not, however, retroactively change how we share your personal information without your consent. We will provide notice of any material changes through the Ripl Services or by other means as we deem appropriate before they take effect. Please check back periodically for any changes we may make to the Privacy Policy. Your continued use of the Ripl Service following the posting of changes to this Privacy Policy means you accept these changes.</p>
+                    </li>
+
+                    <li>
+                        <h3>Personal Information We Collect</h3>
+
+                <p>When you interact with the Ripl Service, we may collect personal information, such as:</p>
+                <ul style="list-style-type: disc; margin-left: 30px;margin-bottom: 14px;">
+                <li>Name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>IP address</li>
+                    <li>Mobile device identifier</li>
+                    <li>Password</li>
+                    <li>Geolocation data</li>
+                    </ul>
+        <p>We may also collect general information about the equipment you use to access the Ripl Service, your
+        operating system and browser type, the services that you use, times and dates of your interactions with
+        the Ripl Service, details of your transactions through the Ripl Service, and mobile and web software event
+            data.</p>
+            </li>
+            <li><h3>How We Collect Information</h3>
+            <p>We may collect information:</p>
+            <ul style="list-style-type: disc; margin-left: 30px;margin-bottom: 14px;">
+                    <li>Directly from you when you provide it, including by filling out forms, setting up a personal profile,
+        participating in sweepstakes, contests, or promotions, or contacting us through our “Contact Us”
+        form.</li>
+                    <li>Automatically as you interact with the Ripl Service, such as location data, data on browsing
+        activities and patterns, times and dates of logins, and event data.</li>
+                    <li>That you share, post, or transmit when interacting with the Ripl Service.</li>
+                    <li>From third parties, including social media platforms and cloud storage services you use to
+        interact with the Ripl Service.</li>
+                    </ul>
+                <p><strong>Social Media Platforms.</strong> The Ripl Service allows you to combine content you have stored on third-party
+        cloud storage services and post it to social media platforms. When you post content to a social media
+        platform using the Ripl Service, Ripl may have access to information from your social media account, such
+        as likes and comments on posted content, and page or group affiliations. This information allows Ripl to
+        provide you with personalized in-app recommendations. Most social media platforms provide you with a
+        tool to control the information you share with the Ripl Service, which is governed by the policies of the
+                    applicable social media platform.</p>
+                <p><strong>Cookies.</strong> The Ripl Service uses cookies. A "cookie" is a small file that we save on your computer's hard
+        drive, which contains the user’s IP address. Our cookies help to give you faster access to pages you have
+        already visited, allow you to personalize your pages, and help you to participate in activities or events on
+        the Ripl Service. They also help us customize our offerings to you. You may choose to disable cookies
+                    through your web browser, but doing so may affect your ability to access or use the Ripl Service.</p>
+                <p><strong>Web Beacons.</strong> Web beacons are small graphic images or other programming code (also known as "1×1
+        GIFS" or "clear GIFs"). We may include web beacons in the Ripl Service pages and email messages. Web
+        beacons may be used to count visitors to the Ripl Service, to monitor how users navigate the Ripl Service,
+                    and to count how many emails that were sent were actually opened.</p>
+        </li>
+
+            <li><h3>How We Use Information</h3>
+                <p>We may use your information to:</p>
+        <ul style="list-style-type: disc; margin-left: 30px;margin-bottom: 14px;">
+                <li>Provide the service you've requested or agreed to receive.</li>
+            <li>Enable you to participate in Ripl Service features.</li>
+                <li>Enable you to participate in sweepstakes, contests, and promotions through the Ripl Service.</li>
+                    <li>Tailor the content you see when you visit the Ripl Service.</li>
+                    <li>Process your registration.</li>
+                    <li>Respond to your questions or other requests.</li>
+                    <li>Improve and manage the Ripl Service.</li>
+                    <li>Send you emails to inform you about new features of the Ripl Service.</li>
+            <li>Contact you with regard to your use of the Ripl Service.</li>
+            <li>Market Ripl products and services to you and send you marketing materials that may be of interest to you, but only if you consent to providing your information for this purpose.</li>
+            <li>Conduct promotional, analytical, and business development activities with Ripl’s trusted third-party partners.</li>
+            <li>For other purposes with your consent.</li>
+                    </ul>
+
+                <p><strong>Information You Share With Us.</strong> When you interact with the Ripl Service, you may set up your personal
+        profile, add and post content, and transmit information through your social media profiles or email
+        accounts. We may retain this information so that, for instance, you can return to view prior information
+                you have sent and monitor and interact with content you have posted.</p>
+                <p>
+            <strong>Marketing Communications from Ripl.</strong> By using the Ripl Service,
+            you agree to allow Ripl to send you marketing communications.
+            If you choose to opt out of Ripl’s marketing communications,
+            you may still access the Ripl Service,
+            but you may not receive important information about features and functionality of the Ripl Service
+            or other products that may interest you.</p>
+                <p><strong>Information You Choose To Share Publicly.</strong> The Ripl Service allows you to post content (User
+        Submissions) publicly through third-party sites and services (including but not limited to social media
+        sites). Subject to your profile and privacy settings for the applicable third-party site or service, any User
+        Submissions that you make public are visible to and searchable by others. If you remove information that
+        you posted, copies may remain viewable in cached and archived pages, or if others have copied or saved
+        that information. Please see our Terms of Service for more information about User Submissions. In addition to User Submissions, the Ripl Service may allow you to post comments in public areas, such as
+        social media networks, community pages, message boards, status updates, or feedback sections. Due to
+        their public nature, User Submissions and comments you share in public areas are not subject to this
+            Privacy Policy. Please be careful about what you choose to share publicly.</p>
+            </li>
+
+            <li>
+            <h3>How We Share Information</h3>
+
+            <p>We may share non-personally identifiable information, such as aggregated user statistics, with third
+        parties. We do not share your personal information for any purpose other than as described in this Privacy Policy. We may share the information we
+        have collected about you, including personal information, as disclosed at the time you provide your
+                information and in the following circumstances:</p>
+                <p><strong>Third Parties Providing Services on Our Behalf.</strong> We use third parties to host the Ripl Service, design and
+        operate the Ripl Service features, and perform administrative, analytics, and communications services.
+        Services these parties provide include enabling Ripl to send you email newsletters and push notifications,
+        which may contain personalized content or information specific to your use of the Ripl Service, and
+        evaluating providing information to Ripl about the use of the Ripl Service and viewing of our content. We
+        may disclose your personal information to these companies so they can carry out these services. These
+        companies are bound by contractual obligations to keep personal information confidential and use it only
+        for the purposes for which Ripl discloses it to them. We may use: (a) third-party analytics service
+        providers and (b) ad-serving platforms, such as Google and Facebook, which may set and access their own
+        cookies and web beacons on your device. These parties may have access to usage information. They may
+        also have access to pseudonymous or anonymous information about you (such as a unique identification
+        number), which may be combined or associated with information from other sources to identify you.</p>
+
+                <p><strong>Sweepstakes, Contests, and Promotions.</strong> We may offer sweepstakes, contests, and other promotions
+        (each, a "Promotion") through the Ripl Service that may require registration. By participating in a
+        Promotion, you agree to the terms, conditions and/or official rules that govern that Promotion. If you
+        choose to enter a Promotion, we may disclose your personal information to third parties or the public in
+        connection with the administration of the Promotion, including, without limitation, in connection with
+        winner selection, prize fulfillment, and as required by law or permitted by the Promotion's official rules,
+                    such as on a winners' list.</p>
+
+            <p><strong>Administrative and Legal Reasons.</strong> We may also disclose personal information if required to do so by law
+        or in the good-faith belief that such action is necessary to (a) conform to applicable law or comply with
+        legal process served on us; and (b) protect and defend our rights or property, the Ripl Service, its users, or
+                the public.</p>
+
+            <p><strong>Business Transfer.</strong> We reserve the right to disclose and transfer all information related to the Ripl Service,
+        including, without limitation, your personal information, demographic information and usage information:
+        (i) to a subsequent owner, co-owner or operator of the Ripl Service or applicable database; or (ii) in
+        connection with a corporate merger, consolidation, restructuring, the sale of substantially all of our stock
+        and/or assets or other corporate change, including, without limitation, during the course of any due
+        diligence process.</p>
+
+            <p><strong>Third-Party Partnerships.</strong> From time to time, Ripl may engage with trusted
+        third-party partners to conduct various promotional activities, and these activities
+        may include the use of your personal information to gather business analytics
+        and business development data. We may disclose your personal information to
+        our third-party partners in order to analyze the success and results of these
+        promotional activities. However, our third-party partners will not be permitted to
+        use your personal information for other communications or promotional
+        purposes.</p></li>
+
+            <li><h3>Links to Other Websites and Services</h3>
+                        <p>We are not responsible for the practices employed by websites or services linked to or from the Ripl Service, including the information or content contained therein. Please remember that our Privacy Policy does not apply to third-party websites or services. We are not responsible for, and we do not exercise control over, any third parties that you authorize to access your User Submissions or other publicly posted or shared content. If you are using a third-party website or service (such as Facebook, Instagram, Twitter or others) and you allow such a third-party access to your content you do so at your own risk. This Privacy Policy does not apply to information we collect by other means (including offline) or from other sources other than through the Ripl Service.</p>
+                    </li>
+
+                    <li>
+                        <h3>Security</h3>
+                        <p>Personal information collected via the Ripl Service is stored in secure operating environments that are not available to the public. In some instances, personal information is encrypted during storage and transmission. Only those Ripl employees and agents who need access to your Personal Information to do their jobs are allowed access, each having signed confidentiality agreements.
+                            </p><p>
+                                </p><p>While we make reasonable efforts to safeguard your Personal Information once we receive it, no transmission of data over the Internet or any other public network can be guaranteed to be 100% secure. As a result, we cannot ensure or warrant the security of any information you transmit to us or information we transmit to you from the Ripl Service, and you assume all related risks.</p>
+                                <p>We regularly review the information that we collect and store. We retain your personal information for as long as we deem appropriate under our internal data retention policy, or until you request that we delete it. In certain cases, Ripl may be required to retain your data to comply with applicable law or in connection with a legal claim.</p>
+                    </li>
+                    <li>
+                        <h3>Other Information</h3>
+                        <p><strong>Lawful Bases.</strong> We collect and process your personal information only when we have a lawful basis to do so. Lawful bases include your consent, the fulfillment of Ripl’s contractual rights or obligations, complying with applicable law, and the legitimate interests of Ripl or third parties (provided that processing your data for a legitimate interest does not outweigh your rights and freedoms). Examples of a legitimate interest include (i) analyzing user data to maintain and improve the Ripl Service for all users; (ii) providing you with access to the Ripl Service; (iii) providing you with up-to- date information about new features of the Ripl Service; and (iv) engaging third-party providers to deliver certain features of the Ripl Service. You may withdraw your consent or object to a legitimate interest at any time by contacting us at the information provided below.</p>
+                        <p><strong>Cross-Border Transfer.</strong> The Ripl Service is hosted on US servers. Any personal information you provide to us will be processed and stored on servers in the US, the laws of which may be deemed by other countries to have inadequate data protection. Accordingly, if you are located outside the US, you consent and continue to consent to the processing and storage of such data in the US. We have agreements in place with our affiliates and contractors that include standard contractual clauses to protect your rights with respect to your data.</p>
+                        <p><strong>Do Not Track:</strong> Some browsers incorporate a "Do Not Track" (DNT) feature that, when turned on, signals to websites and online services that you do not want to be tracked. At this time, the Ripl Service does not respond to DNT signals.</p>
+                        <p><strong>Children Under 16.</strong> We do not knowingly collect personal information from children under the age of 16 and do not target the Ripl Service to children under 16. If you are under 16, please do not use the Ripl Service or submit any personal information through the Ripl Service. If you have reason to believe that a child under the age of 16 has provided their personal information to us, please contact us, and we will delete that information.</p>
+                    </li>
+
+                    <li>
+                        <h3>Your Choices and Our Contact Information</h3>
+                        <p>If you choose not to provide personal information, you may be unable to access or use the Ripl Service.</p>
+                        <p><strong>Accessing Your Personal Information.</strong> If you would like to obtain a copy of your personal information gathered by the Ripl Service, or if you would like to correct or delete such information from the Ripl Service’s marketing database, send us an email at “feedback(at)ripl.com” to submit a request. Depending on the law that applies where you live, you may have additional rights, such as the right to request that we send your information to another organization of your choice (where technically feasible).</p>
+                        <p><strong>Opting Out.</strong> We only send promotional and marketing communications with your consent. If you no longer wish to receive these or other communications from the Ripl Service, send us an email at “feedback(at)ripl.com”. You can stop receiving newsletter email communications from us by clicking on the “unsubscribe link” provided in such communications.</p>
+                        <p><strong>Improper Collection and Misuse of Personal Information.</strong> Please report any improper collection or misuse of personal information provided on the Ripl Service to “feedback(at)ripl.com”. Depending on the law where you live, you may also have the right to file a complaint with your local data protection authority.
+                        </p>
+                    </li>
+
+                </ol>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+      <footer class="page-footer bg-color-5 pt-3">
+
+  <div class="container text-center text-md-left mt-5 justify-content-middle">
+
+    <div class="row mt-3">
+
+      <div class="col-md mb-4 d-flex justify-content-center">
+        <div class="col">
+            <h6 class="font-weight-bold mb-3">Get Ripl</h6>        
+            <a href="/ripl-for-iphone/">Ripl for iPhone</a>
+            <a href="/ripl-for-ipad/">Ripl for iPad</a>
+            <a href="/ripl-for-android/">Ripl for Android</a>
+            <a href="/ripl-for-desktop/">Ripl for Desktop</a>          
+        </div>        
+      </div>
+
+      <div class="col-md mt-3 mt-md-0 mb-4 d-flex justify-content-center">        
+        <div class="col">
+            <h6 class="font-weight-bold mb-3">Resources</h6>        
+            <a href="https://blog.ripl.com">Blog</a>
+            <a href="http://help.ripl.com/support/home">FAQ</a>
+            <a href="https://www.youtube.com/RiplApp">Tutorial Videos</a>
+            <a href="/case-studies-and-testimonials/">Testimonials</a>
+            <!-- <a href="/resources/Ripl_Media_Kit_Logos.zip">Media Kit &amp; Logos</a> -->
+        </div>
+      </div>
+
+      <div class="col-md mt-3 mt-md-0 mb-4 d-flex justify-content-center">
+        <div class="col">
+            <h6 class="font-weight-bold mb-3">Company</h6>                    
+            <a href="/news-and-press/">News and Press</a>
+            <a href="/partners/">Partnerships</a>
+            <a href="/careers/">Careers</a>
+            <a href="/terms-of-use/">Terms of Use</a>
+            <a href="/privacy-policy/">Privacy Policy</a>
+        </div>        
+      </div>
+
+      <div class="col-4 mt-3 mt-md-0 mb-4 d-none d-md-flex justify-content-center">
+          <div>
+              <h6 class="font-weight-bold mb-3">Connect</h6>
+              <div class="row">                
+                  <a class="icon" href="https://www.facebook.com/Ripl" target="_blank"><img src="/images/sm_icons/fb.svg" alt="facebook icon" /></a>                  
+                  <a class="icon" href="https://www.twitter.com/Ripl_App" target="_blank"><img src="/images/sm_icons/twitter.svg" alt="twitter icon" /></a>
+                  <a class="icon" href="https://www.instagram.com/ripl" target="_blank"><img src="/images/sm_icons/ig.svg" alt="instagram icon" /></a>
+                  <a class="icon" href="https://www.linkedin.com/company/ripl-inc/" target="_blank"><img src="/images/sm_icons/linkedin.svg" alt="linkedin icon" /></a>
+                  <a class="icon" href="https://www.youtube.com/RiplApp" target="_blank"><img src="/images/sm_icons/youtube.svg" alt="youtube icon" /></a>
+                  <a class="icon" href="http://help.ripl.com/support/tickets/new" target="_blank"><img src="/images/sm_icons/email.svg" alt="email icon" /></a>
+              </div>                                    
+          </div>        
+        </div>
+    </div>
+  </div>
+
+  <div class="container d-block d-md-none justify-content-center">
+    
+    <div class="text-center">
+        <a class="icon" href="https://www.facebook.com/Ripl" target="_blank"><img src="/images/sm_icons/fb.svg" alt="facebook icon" /></a>
+        <a class="icon" href="https://www.instagram.com/ripl" target="_blank"><img src="/images/sm_icons/ig.svg" alt="instagram icon" /></a>
+        <a class="icon" href="https://www.twitter.com/Ripl_App" target="_blank"><img src="/images/sm_icons/twitter.svg" alt="twitter icon" /></a>        
+        <a class="icon" href="https://www.linkedin.com/company/ripl-inc/" target="_blank"><img src="/images/sm_icons/linkedin.svg" alt="linkedin icon" /></a>
+        <a class="icon" href="https://www.youtube.com/RiplApp" target="_blank"><img src="/images/sm_icons/youtube.svg" alt="youtube icon" /></a>  
+        <a class="icon" href="http://help.ripl.com/support/tickets/new" target="_blank"><img src="/images/sm_icons/email.svg" alt="email icon" /></a>
+    </div>
+  </div>
+
+  <p class="footer-copyright text-center py-4 mb-0 text-color-7">©2020 Ripl, Inc.</p>
+
+</footer>
+
+
+    </div>
+
+    <!-- Lodash JS -->
+<script src="/js/lodash.min.js"></script>
+
+<!-- Cookie Permission -->
+<!-- <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" /> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+<script>
+  $(window).on("load", function(){
+    if ( window.cookieconsent )
+    {
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#F5F5F5",
+            "text":"#3A3A3A"
+          },
+          "button": {
+            "background": "#464DE1",
+            "text":"#FFFFFF"
+          }
+        },
+        "position": "bottom",
+        "content": {
+          "message": "By using this site, you agree to the use of cookies for analytics, personalized content, and ads.",
+          "link": "Privacy Policy",
+          "href": "/privacy-policy/"
+        }
+      });
+    }
+  });
+</script>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<!-- Facebook -->
+<!-- FACEBOOK -->
+<script>
+  (function ( d, s, id ) {
+    var js, fjs = d.getElementsByTagName( s )[0];
+    if ( d.getElementById( id ) )
+    {
+      return;
+    }
+    js = d.createElement( s );
+    js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore( js, fjs );
+  }( document, 'script', 'facebook-jssdk' ));
+
+  window.fbAsyncInit = function ()
+  {
+    FB.init({
+       appId: '1629709950616745',
+       cookie: true,
+       xfbml: true,
+       version: 'v2.12'
+     });
+  };
+
+  !function ( f, b, e, v, n, t, s )
+  {
+    if ( f.fbq ) return;
+    n = f.fbq = function () {
+      n.callMethod ?
+      n.callMethod.apply( n, arguments ) : n.queue.push( arguments )
+    };
+    if ( !f._fbq ) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement( e );
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName( e )[0];
+    s.parentNode.insertBefore( t, s )
+  }(
+    window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js'
+  );
+
+  fbq( 'init', '1692450694411246' );
+  fbq( 'track', 'PageView' );
+</script>
+
+
+<!-- Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-68548848-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-68548848-1');
+  gtag('config', 'AW-875425320');
+</script>
+
+
+<!-- Twitter Tag -->
+<!-- Twitter universal website tag code -->
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  // Insert Twitter Pixel ID and Standard Event data below
+  twq('init','o0k6k');
+  twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+<!-- CTA Router -->
+<script src="/js/cta-router.js"></script>
+
+<!-- Tracking -->
+<script src="/js/trackPageVisit.js"></script>
+
+  
+
+<script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=o0k6k&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels&amp;tw_document_href=https%3A%2F%2Fwww.ripl.com%2Fprivacy-policy%2F" type="text/javascript"></script><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div><iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE" style="display: none;"></iframe></body></html>
