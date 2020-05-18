@@ -105,7 +105,6 @@ const outputDir = './out';
                     }
                   }
                 }
-                //newPar = str + child.children[0].data;
               }
               //$(this).add('p');
               //newNode.append("This is a paragraph");
