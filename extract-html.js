@@ -89,7 +89,6 @@ const outputDir = './out';
         $('p').each(function (i, elem) {
           const str = $(this).text();
           const colon = str.lastIndexOf(":")
-          console.log(colon)
           if (colon == str.length - 2 && colon != -1) {
             if ($(this).next()[0].name == 'ul' || $(this).next()[0].name == 'li' || $(this).next()[0].name == 'ol') {
               const children = $(this).next()[0].children
