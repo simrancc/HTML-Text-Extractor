@@ -28,6 +28,7 @@ class PrivacyPolicy(object):
         with open("plaintext.txt", "w") as file:
             file.write(str(allStrings))
 
+
     def simplify_html(self) :
         nlp = spacy.load('en_core_web_sm')
         for x in self.inputSoup.find_all("p"):
@@ -65,3 +66,33 @@ class PrivacyPolicy(object):
     def outputFile(self) :
         with open("output1.html", "w") as file:
             file.write(str(self.soup))
+
+
+    def average_list_length(self) :
+        average = 0
+        ellipsis_sentences = 0
+        nlp = spacy.load('en_core_web_sm')
+        for x in self.inputSoup.find_all("p"):
+            text = str(x.contents[0].string)
+            colon = ":"
+            if (text.rfind(colon) == len(text) - 1 or text.rfind(strr) == len(text) - 2) :
+                for sibling in x.next_siblings:
+                    if sibling.name == "li" or sibling.name == "ul" or sibling.name == "ol" :
+                        ellipsis_doc = nlp(text)
+                        ellipsis_sentences = list(ellipsis_doc.sents)
+                        sum = 0
+                        for sentence in ellipsis_sentences:
+                            sum += len(sentence)
+        return average = sum / len(ellipsis_sentences)
+
+
+    def average_sentences_in_paragraph(self) :
+        average = 0
+        count = 0
+        for x in self.inputSoup.find_all("p"):
+            count = count + 1
+            text = str(x.contents[0].string)
+            ellipsis_doc = nlp(text)
+            ellipsis_sentences = list(ellipsis_doc.sents)
+            sum += len(ellipsis_sentences)
+        return average = sum / count
