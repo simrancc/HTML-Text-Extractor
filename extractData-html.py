@@ -98,7 +98,7 @@ class PrivacyPolicy(object):
             text = str(x.contents[0].string)
             colon = ":"
             #find <p> that end in a colon
-            if (text.rfind(colon) == len(text) - 1 or text.rfind(strr) == len(text) - 2) :
+            if (text.rfind(colon) == len(text) - 1 or text.rfind(colon) == len(text) - 2) :
                 for sibling in x.next_siblings:
                     #find sibling that is li/ul/ol
                     if sibling.name == "li" or sibling.name == "ul" or sibling.name == "ol" :
