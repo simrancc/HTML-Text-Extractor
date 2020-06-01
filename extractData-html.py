@@ -3,25 +3,25 @@ import spacy
 import re
 import sys
 import html2text
-
+import os
 
 class PrivacyPolicy(object):
 
-    #initialize class with var to store various metadata info
-    def __init__(self, html, remove_Array, listAvg, pLength) :
+    def __init__(self, html) :
         self.html = html
         with open(html) as fp:
             self.inputSoup = BeautifulSoup(fp, features="html.parser")
-        self.removed_strings = remove_Array
-        self.listAvg = listAvg
-        self.paragraphAvgLength = pLength
+        self.removed_strings = []
+        self.listAvg = 0
+        self.paragraphAvgLength = 0
+        self.nlp = spacy.load('en_core_web_sm')
 
-    #only print plain text for whichever html passed in
+
     def print_plain_text(self, html) :
         html = open(html).read()
         print(html2text.html2text(html))
 
-    #store plain text into an output file for whichever html passed in
+
     def output_plain_text(self, html) :
         # Open your file
         with open(html, 'r') as f_html:
@@ -32,72 +32,51 @@ class PrivacyPolicy(object):
 
 
     def simplify_html(self) :
-        #load english dic for spaCy to get sentences later
-        nlp = spacy.load('en_core_web_sm')
-        #loop through all paragraph elements
+        #loop through all <p> elements
         for x in self.inputSoup.find_all("p"):
             text = str(x.contents[0].string) #get text of <p>
             colon = ":"
             #find <p> that end in a colon
             if (text.rfind(colon) == len(text) - 1 or text.rfind(colon) == len(text) - 2) :
                 for sibling in x.next_siblings:
-                    #find sibling that is li/ul/ol
                     if sibling.name == "li" or sibling.name == "ul" or sibling.name == "ol" :
-                        ellipsis_doc = nlp(text)
-                        ellipsis_sentences = list(ellipsis_doc.sents)
-                        #get last sentence from <p> text
+                        ellipsis_sentences = get_sentences(text)
                         lastSentence = ellipsis_sentences[len(ellipsis_sentences) - 1]
                         allStrings = []
                         #loop through all the list elements within the <p>
                         for child in sibling.stripped_strings:
-                            #print(sibling.find(string=re.compile(child)))
-                            #print("############################################")
                             allStrings = sibling.find_all(string=re.compile(child))
-                            #print(allStrings)
                             for strings in allStrings :
-                                #print(strings)
-                                #if parent of string is <li> include
                                 if (strings.parent.name == "li") :
-                                    #check if ending of list text is correct punctuation otherwise add '.'
-                                    if ( (strings.rfind(".") != len(strings) - 1 and strings.rfind(".") != len(strings) - 2) and
-                                    (strings.rfind("?") != len(strings) - 1 and strings.rfind("?") != len(strings) - 2) and
-                                    (strings.rfind("!") != len(strings) - 1 and strings.rfind("!") != len(strings) - 2) ):
+                                    if (is_punctuation(strings)):
                                         strings += "."
-                                        #create new paragraph element and insert before orginial <p>
+                                    #create new paragraph element and insert before list
                                     new_tag = self.inputSoup.new_tag("p")
                                     sibling.insert_before(new_tag)
                                     new_tag.string = str(lastSentence) + " " + strings
-                                        #print(self.inputSoup)
-                                        #print(new_tag.string)
-                                        #if parent is not <li> it is not a list element (subtitle, comment, etc.)
+                                #if parent is not <li> it is not a list element (subtitle, comment, etc.)
                                 else :
                                     self.removed_strings.append(strings)
                         #delete entire bulleted list
                         sibling.extract()
 
-    #output html
     def outputFile(self) :
         with open("output2.html", "w") as file:
             file.write(str(self.inputSoup))
 
-    #calc average list of length
+
     #going to change into heuristic later
     def average_list_length(self) :
         average = 0
-        ellipsis_sentences = 0
-        #load english dic for spaCy to get sentences later
-        nlp = spacy.load('en_core_web_sm')
-        #loop through all paragraph elements
+        #loop through all <p> elements
         for x in self.inputSoup.find_all("p"):
             text = str(x.contents[0].string)
             colon = ":"
-            #find <p> that end in a colon
             if (text.rfind(colon) == len(text) - 1 or text.rfind(colon) == len(text) - 2) :
                 for sibling in x.next_siblings:
                     #find sibling that is li/ul/ol
                     if sibling.name == "li" or sibling.name == "ul" or sibling.name == "ol" :
-                        ellipsis_doc = nlp(text)
-                        ellipsis_sentences = list(ellipsis_doc.sents)
+                        ellipsis_sentences = get_sentences(text)
                         sum = 0
                         #sum up length of all bulleted text
                         for sentence in ellipsis_sentences:
@@ -105,7 +84,7 @@ class PrivacyPolicy(object):
         self.listAvg = sum / len(ellipsis_sentences)
         return self.listAvg
 
-    #calc average # of sentences per paragraph
+
     def average_sentences_in_paragraph(self) :
         average = 0
         count = 0
@@ -113,17 +92,35 @@ class PrivacyPolicy(object):
         for x in self.inputSoup.find_all("p"):
             count = count + 1
             text = str(x.contents[0].string)
-            ellipsis_doc = nlp(text)
-            #get all sentences from paragraph
-            ellipsis_sentences = list(ellipsis_doc.sents)
+            ellipsis_sentences = get_sentences(text)
             #sum up length of all sentences in one paragraph
             sum += len(ellipsis_sentences)
         self.paragraphAvgLength = sum / count
         return self.paragraphAvgLength
 
 
+    def get_sentences(self, text) :
+        ellipsis_doc = self.nlp(text)
+        ellipsis_sentences = list(ellipsis_doc.sents)
+        return ellipsis_sentences
+
+
+    def is_punctuation(strings) :
+        if ( (strings.rfind(".") != len(strings) - 1 and strings.rfind(".") != len(strings) - 2) and
+        (strings.rfind("?") != len(strings) - 1 and strings.rfind("?") != len(strings) - 2) and
+        (strings.rfind("!") != len(strings) - 1 and strings.rfind("!") != len(strings) - 2) ) :
+            return false
+        else :
+            return true
+
+
+
+for root, dirs, files in os.walk('/Users/simrancc/Downloads/policy_crawl') :
+    for file in files:
+        print(file)
+        if file == "policy.simple.html":
+
 html = sys.argv[1]
-remove_Arr = []
-p = PrivacyPolicy(html, remove_Arr, 0, 0)
+p = PrivacyPolicy(html)
 p.simplify_html()
 p.output_plain_text("output3.html")
