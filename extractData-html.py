@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import spacy
 import re
-
+import sys
 
 class PrivacyPolicy(object):
 
@@ -126,3 +126,10 @@ class PrivacyPolicy(object):
             sum += len(ellipsis_sentences)
         self.paragraphAvgLength = sum / count
         return self.paragraphAvgLength
+
+
+html = sys.argv[1]
+remove_Arr = []
+p = PrivacyPolicy(html, remove_Arr, 0, 0)
+p.simplify_html()
+print(p.inputSoup.prettify())
