@@ -37,17 +37,16 @@ const outputDir = './out';
           let finalDest = `${outputDir}/${title}`;
           fse.ensureDirSync(finalDest);
 
-              /* Print page title */
-          //const title = await page.title();
+          /* Print page title */
           console.log(`*** Processing ${request.url}: ${title}, ${appId}`);
           console.log(finalDest)
 
-              /* Scrape MHTML */
+          /* Scrape MHTML */
           const cdp = await page.target().createCDPSession();
           const {data} = await cdp.send('Page.captureSnapshot', {format: 'mhtml'});
           fse.writeFileSync(`${finalDest}/page.mhtml`, data);
 
-              /* Scrape HTML */
+          /* Scrape HTML */
           const renderedContent = await page.evaluate(() => new XMLSerializer().serializeToString(document));
           fse.writeFileSync(`${finalDest}/page.html`, renderedContent);
           /* Write metadata */
