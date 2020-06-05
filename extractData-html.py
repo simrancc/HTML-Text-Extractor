@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag, NavigableString
 import spacy
 import re
 import sys
@@ -57,17 +57,28 @@ class PrivacyPolicy(object):
         #print("######################################")
         #print(self.inputSoup.prettify())
         #print("######################################")
-        for x in self.inputSoup.find_all(["p", "b"]):
-            print("######################################")
-            print(x.contents)
-            print("######################################")
-            text = str(x.contents[0].string) #get text of <p>
+        for x in self.inputSoup.find_all(["p", "b", "li"]):
+            isColon = False
+            #texts = str(x.contents[0].string) #get text of <p>
             colon = ":"
+            # print("######################################")
+            # print(x.contents)
+            # print("######################################")
             #find <p> that end in a colon
-            if (text.rfind(colon) == len(text) - 1 or text.rfind(colon) == len(text) - 2) :
-                if ( (type(x.next_sibling) == type(x.contents[0].string) and x.next_sibling.next_sibling is not None and x.next_sibling.next_sibling.name in self.listElements)
+            count = 0
+            while(len(x.contents) > count):
+                text = str(x.contents[count].string)
+                if (text.rfind(colon) == len(text) - 1 or text.rfind(colon) == len(text) - 2) :
+                    isColon = True
+                    break
+                count = count + 1
+            if (isColon) :
+                if ( (isinstance(x.next_sibling, NavigableString) and x.next_sibling.next_sibling is not None and x.next_sibling.next_sibling.name in self.listElements)
                     or (x.next_sibling is not None and x.next_sibling.name in self.listElements) ):
-                #for sibling in x.next_siblings:
+                    # print("######################################")
+                    # print(x)
+                    # print("######################################")
+                    #for sibling in x.next_siblings:
                     if (x.next_sibling.name in self.listElements) :
                         sibling = x.next_sibling
                     else :
@@ -77,20 +88,21 @@ class PrivacyPolicy(object):
                     lastSentence = ellipsis_sentences[len(ellipsis_sentences) - 1]
                     #loop through all the list elements within the <p>
                     for child in sibling.contents:
-                         if (type(child) != type(x.contents[0].string)) :
-                             strings = child.text
-                        #allStrings = sibling.find_all(string=re.compile(child))
-                        #for strings in allStrings :
+                        if (isinstance(child, NavigableString)) :
+                            self.removed_strings.append(child)
+                            #if parent is not <li> it is not a list element (subtitle, comment, etc.)
+                        else :
+                            strings = child.text
+                            #allStrings = sibling.find_all(string=re.compile(child))
+                            #for strings in allStrings :
                             #if (strings.parent.name == "li") :
-                             if (self.is_punctuation(strings)):
+                            if (self.is_punctuation(strings)):
                                 strings += "."
                                 #create new paragraph element and insert before list
-                             new_tag = self.inputSoup.new_tag("p")
-                             sibling.insert_before(new_tag)
-                             new_tag.string = str(lastSentence) + " " + strings
-                            #if parent is not <li> it is not a list element (subtitle, comment, etc.)
-                         else :
-                             self.removed_strings.append(child)
+                                new_tag = self.inputSoup.new_tag("p")
+                                sibling.insert_before(new_tag)
+                                new_tag.string = str(lastSentence) + " " + strings
+                                self.removed_strings.append(child)
                     #delete entire bulleted list
                     sibling.extract()
         #print(self.inputSoup.prettify())
@@ -134,20 +146,22 @@ class PrivacyPolicy(object):
         return self.paragraphAvgLength
 
 
-count = 1
+count = 0
+number = 0
 for root, dirs, files in os.walk('/Users/simrancc/Downloads/policy_crawl') :
-   for name in files:
-       count = count + 1
-       #print(name)
-       #print(root)
-       if name == "policy.simple.html" and count < 25:
-           print(os.path.join(root, name))
-           html = os.path.join(root, name)
-           p = PrivacyPolicy(html)
-           p.simplify_html()
-           completeName = os.path.join(root, "clean.html")
-           p.outputFile(completeName)
-
+    for name in files:
+        count = count + 1
+        #print(name)
+        #print(root)
+        if name == "policy.simple.html" and count < 1000:
+            number = number + 1
+            print(os.path.join(root, name))
+            html = os.path.join(root, name)
+            p = PrivacyPolicy(html)
+            p.simplify_html()
+            completeName = os.path.join(root, "clean.html")
+            p.outputFile(completeName)
+print(number)
 # html = sys.argv[1]
 # p = PrivacyPolicy(html)
 # p.simplify_html()
