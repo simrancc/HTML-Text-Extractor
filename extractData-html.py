@@ -58,6 +58,7 @@ class PrivacyPolicy(object):
         #print(self.inputSoup.prettify())
         #print("######################################")
         for x in self.inputSoup.find_all(["p", "b", "li"]):
+            print(x)
             isColon = False
             #texts = str(x.contents[0].string) #get text of <p>
             colon = ":"
