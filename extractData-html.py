@@ -149,7 +149,7 @@ class PrivacyPolicy(object):
 count = 0
 number = 0
 #'/Users/simrancc/Downloads/policy_crawl'
-for root, dirs, files in os.walk('/home/simrancc/policy_crawl') :
+for root, dirs, files in os.walk('/root/policy_crawl') :
     for name in files:
         count = count + 1
         #print(name)
