@@ -146,15 +146,13 @@ class PrivacyPolicy(object):
         return self.paragraphAvgLength
 
 
-count = 0
 number = 0
 #'/Users/simrancc/Downloads/policy_crawl'
 for root, dirs, files in os.walk('/root/policy_crawl') :
     for name in files:
-        count = count + 1
         #print(name)
         #print(root)
-        if name == "policy.simple.html" and count < 1000:
+        if name == "policy.simple.html":
             number = number + 1
             print(os.path.join(root, name))
             html = os.path.join(root, name)
