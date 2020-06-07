@@ -152,14 +152,22 @@ for root, dirs, files in os.walk('/root/policy_crawl') :
     for name in files:
         #print(name)
         #print(root)
-        if name == "policy.simple.html":
+        # if name == "policy.simple.html":
+        #     number = number + 1
+        #     print(os.path.join(root, name))
+        #     html = os.path.join(root, name)
+        #     p = PrivacyPolicy(html)
+        #     p.simplify_html()
+        #     completeName = os.path.join(root, "clean.html")
+        #     p.outputFile(completeName)
+        if name == "clean.html":
             number = number + 1
             print(os.path.join(root, name))
             html = os.path.join(root, name)
             p = PrivacyPolicy(html)
-            p.simplify_html()
             completeName = os.path.join(root, "clean.html")
-            p.outputFile(completeName)
+            p.output_plain_text(completeName, "plaintext.txt")
+
 print(number)
 # html = sys.argv[1]
 # p = PrivacyPolicy(html)
