@@ -10,6 +10,9 @@ yarn add "module name"
 npm install "module name"
 ```
 ### Usage
-To create simply.html run first through mParse-html.js
+To create "simply.html" run mParse-html.js
 
-Then using clean.html file created run through extractData-html.py
+Using the "simple.html" file generated from mParse-html.js run extractData-html.py
+```bash
+python3 extractData-html.py simple.html
+```
