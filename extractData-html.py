@@ -146,10 +146,10 @@ class PrivacyPolicy(object):
         return self.paragraphAvgLength
 
 
-number = 0
+#number = 0
 #'/Users/simrancc/Downloads/policy_crawl'
-for root, dirs, files in os.walk('/root/policy_crawl') :
-    for name in files:
+# for root, dirs, files in os.walk('/root/policy_crawl') :
+#     for name in files:
         #print(name)
         #print(root)
         # if name == "policy.simple.html":
@@ -160,17 +160,19 @@ for root, dirs, files in os.walk('/root/policy_crawl') :
         #     p.simplify_html()
         #     completeName = os.path.join(root, "clean.html")
         #     p.outputFile(completeName)
-        if name == "clean.html":
-            number = number + 1
-            print(os.path.join(root, name))
-            html = os.path.join(root, name)
-            p = PrivacyPolicy(html)
-            completeName = os.path.join(root, "clean.html")
-            p.output_plain_text(completeName, "plaintext.txt")
+        # if name == "clean.html":
+        #     number = number + 1
+        #     print(os.path.join(root, name))
+        #     html = os.path.join(root, name)
+        #     p = PrivacyPolicy(html)
+        #     completeName = os.path.join(root, "clean.html")
+        #     p.output_plain_text(completeName, "plaintext.txt")
 
-print(number)
-# html = sys.argv[1]
-# p = PrivacyPolicy(html)
-# p.simplify_html()
-# p.outputFile("output6.html")
+#print(number)
+html = sys.argv[1]
+p = PrivacyPolicy(html)
+with open("air.com.KalromSystems.SandDrawLite.html", "w") as file:
+    file.write(str(p.inputSoup.prettify()))
+#p.simplify_html()
+#p.outputFile("output6.html")
 #p.output_plain_text("output2.html")
