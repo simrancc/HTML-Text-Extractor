@@ -23,6 +23,8 @@ Make sure "extractData-html.py" is calling process_file() in order to produce ou
 
 * Place HTML privacy policies in ./test/data
 
+* Make sure "extractData-html.py" is calling process_directory() in order to produce output on a single file
+
 * Run the command
 ```bash
 python3 extractData-html.py simple.html
